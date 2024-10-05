@@ -1,16 +1,16 @@
+while True:  
+    user_input = input("Enter a number: ")
 
-import time
-from adafruit_circuitplayground import cp
+    try:
+        user_number = int(user_input)
+        if user_number > 0:
+            print(f"{user_number} is a positive number.")
+        elif user_number < 0:
+            print(f"{user_number} is a negative number.")
+        else:
+            print("You entered zero.")
+        
+        break
 
-cp.pixels.auto_write = False
-cp.pixels.brightness = 0.3
-
-max = 255
-while max > 0:
-    
-    for i in range(10):
-        cp.pixels[i] = (max, 0, 0) 
-    cp.pixels.show()
-    time.sleep(0.3)
-
-    max = max - 1
+    except ValueError:
+        print("That's not a valid number. Please enter an integer.")
